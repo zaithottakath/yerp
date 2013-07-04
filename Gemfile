@@ -6,9 +6,28 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'pg'
 gem 'mongoid'
+gem 'pg'
+gem 'tenacity'
+
 gem 'devise'
+
+gem 'geocoder'
+
+gem 'rgeo'
+gem 'rgeo-activerecord'
+gem 'activerecord-postgis-adapter'
+
+gem 'acts-as-taggable-on'
+gem 'avatars_for_rails'
+gem 'mailboxer'
+gem 'acts_as_commentable_with_threading'
+
+gem 'squeel'
+
+gem 'cancan'
+
+gem 'slim-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -49,4 +68,5 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'letter_opener'
 end

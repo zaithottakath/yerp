@@ -1,0 +1,32 @@
+<h1>Listing businesses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @businesses.each do |business| %>
+  <tr>
+    <td><%= business.name %></td>
+    <td><%= business.address %></td>
+    <td><%# business.location.name  %></td>
+    <td><%= link_to 'Show', business %></td>
+    <% if user_signed_in? %>
+      <td><%= link_to 'Edit', edit_business_path(business) %></td>
+      <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<% if user_signed_in? %>
+  <%= link_to 'New Business', new_business_path %>
+<% end %>

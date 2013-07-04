@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @business.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @business.address %>
+</p>
+<p>
+  Tags: <%= raw @business.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")%>
+</p>
+
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.latitude}%2C#{@business.longitude}" %>
+
+<%=   %>

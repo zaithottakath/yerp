@@ -34,4 +34,7 @@ Yerp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Sends development emails to letter_opener gem
+  config.action_mailer.delivery_method = :letter_opener
 end
