@@ -17,4 +17,16 @@ p
   -if user_signed_in?
     => link_to 'Edit', edit_business_path(@business)
     '|
-  = link_to 'Back', businesses_path
+  = link_to 'All Businesses', businesses_path
+
+-if user_signed_in?
+  p
+    == render 'comments/form'
+
+- @business.comment_threads.each do |comment|
+  p
+    b> Comment:
+    = comment.body
+    br
+    b> Rating:
+    = comment.rating

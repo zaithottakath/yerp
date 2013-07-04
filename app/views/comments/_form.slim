@@ -1,0 +1,10 @@
+strong New comment
+= form_for [@business, @comment] do |f|
+  = f.error_messages
+  p
+    = f.label :comment
+    = f.text_area :body
+  p
+    = f.label :rating
+    = f.text_area :rating
+  = f.submit

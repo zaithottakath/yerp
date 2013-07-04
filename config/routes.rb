@@ -2,7 +2,9 @@ Yerp::Application.routes.draw do
   root to: "businesses#index"
 
   devise_for :users
-  resources :businesses
+  resources :businesses do
+    resources :comments, only: [:create]
+  end
   get 'tags/:tag', to: 'businesses#index', as: :tag
   # The priority is based upon order of creation:
   # first created -> highest priority.

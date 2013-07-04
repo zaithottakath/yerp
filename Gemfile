@@ -29,6 +29,10 @@ gem 'cancan'
 
 gem 'slim-rails'
 
+gem 'dynamic_form'
+
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -69,4 +73,6 @@ end
 group :development do
   gem 'pry-rails'
   gem 'letter_opener'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
