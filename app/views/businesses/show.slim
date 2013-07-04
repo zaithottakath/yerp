@@ -1,0 +1,20 @@
+p#notice = notice
+
+p
+  b Name:
+  =< @business.name
+p
+  b Address:
+  =< @business.address
+p
+  'Tags:
+  == @business.tag_list.map{ |t| link_to t, tag_path(t) }.join(", ")
+
+p
+  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.latitude}%2C#{@business.longitude}"
+
+p
+  -if user_signed_in?
+    => link_to 'Edit', edit_business_path(@business)
+    '|
+  = link_to 'Back', businesses_path
