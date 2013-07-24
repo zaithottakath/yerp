@@ -13,3 +13,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore ctags
+.tags
+.gemtags
+.tags_sorted_by_file
+tags
+
+#Ignore best practices
+rails_best_practices_output.html
+
+#Ignore code coverage
+/coverage

@@ -1,0 +1,20 @@
+h1 Listing businesses
+
+table
+  tr
+    th Name
+    th
+    th
+    th
+    th
+    th
+- @businesses.each do |business|
+  tr
+    td = link_to business.name, business
+    td< = business.address
+    - if user_signed_in?
+      =< link_to 'Edit', edit_business_path(business)
+      =< link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?'}
+
+- if user_signed_in?
+  p = link_to 'Add Business', new_business_path

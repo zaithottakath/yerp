@@ -78,15 +78,6 @@ ActiveRecord::Schema.define(:version => 20130620063027) do
     t.datetime "updated_at",                                       :null => false
   end
 
-  create_table "reviews", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "business_id"
-    t.integer  "rating"
-    t.string   "comments"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"

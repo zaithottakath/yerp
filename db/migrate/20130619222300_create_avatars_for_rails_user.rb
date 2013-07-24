@@ -1,8 +1,8 @@
 class CreateAvatarsForRailsUser < ActiveRecord::Migration
-  def up    
+  def up
     add_attachment :users, :logo
   end
-  
+
   def self.down
     remove_attachment :users, :logo
   end

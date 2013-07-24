@@ -43,12 +43,6 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
   end
 
-  def comment
-    @business = Business.find(params[:id])
-
-    @user_who_commented = current_user
-    @comment = comment.build_from()
-  end
 
   # POST /businesses
   # POST /businesses.json

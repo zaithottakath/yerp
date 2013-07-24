@@ -8,7 +8,7 @@ p
   =< @business.address
 p
   'Tags:
-  == @business.tag_list.map{ |t| link_to t, tag_path(t) }.join(", ")
+  == render_tag_links_for(@business)
 
 p
   = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.latitude}%2C#{@business.longitude}"
@@ -25,7 +25,8 @@ p
 
 - @business.comment_threads.each do |comment|
   p
-    b> Comment:
+    b> = link_to commentor_for(comment), user_path(comment.user_id)
+    ':
     = comment.body
     br
     b> Rating:

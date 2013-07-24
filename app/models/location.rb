@@ -1,6 +1,6 @@
 class Location
   include Mongoid::Document
-  include Tenacity
+  #include Tenacity
 
   field :address, type: String
   field :name, type: String
@@ -9,5 +9,5 @@ class Location
   index({ loc: "2d" }, { min: -200, max: 200 })
 
 
-  t_belongs_to :businesses
+  #t_belongs_to :businesses
 end

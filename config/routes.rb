@@ -1,7 +1,11 @@
 Yerp::Application.routes.draw do
+  get "user/show"
+
   root to: "businesses#index"
 
   devise_for :users
+  resources :users, :only => [:show]
+
   resources :businesses do
     resources :comments, only: [:create]
   end

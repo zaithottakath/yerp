@@ -9,10 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :age, :location, :name
 
-  has_many :reviews
-
-  def comments
-    #method for finding comments for the specific user
+  def best_comments
+    Comments.find_best_comments_by_user(self)
   end
 
 

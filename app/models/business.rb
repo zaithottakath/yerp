@@ -10,8 +10,7 @@ class Business < ActiveRecord::Base
   # only geocode if the address changed
   after_validation :geocode, if: :address_changed?
   after_validation :update_location, if: :address_changed?
-  #associations
-  has_many :reviews
+
   #association through Tenacity to MongoDB
   #t_has_one :location, dependent: :destroy
 
