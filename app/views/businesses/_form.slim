@@ -1,0 +1,26 @@
+= form_for(@business) do |f|
+  - if @business.errors.any?
+    div id="error_explanation"
+      h2 = pluralize(@business.errors.count, "error") + ' prohibited this business from being saved:'
+
+      ul
+       - @business.errors.full_messages.each do |msg|
+          li = msg
+
+  div class="field"
+    = f.label :name
+    br
+    = f.text_field :name
+
+  div class="field"
+    = f.label :address
+    br
+    = f.text_field :address
+
+  div class="field"
+    = f.label :tag_list, "Tags (separated by commas)"
+    br
+    = f.text_field :tag_list
+
+  div class="actions"
+    = f.submit

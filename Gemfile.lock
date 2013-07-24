@@ -120,16 +120,9 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     mini_portile (0.5.0)
-    mongoid (3.1.4)
-      activemodel (~> 3.2)
-      moped (~> 1.4)
-      origin (~> 1.0)
-      tzinfo (~> 0.3.22)
-    moped (1.5.0)
     multi_json (1.7.7)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    origin (1.1.0)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -217,8 +210,6 @@ GEM
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
     temple (0.6.5)
-    tenacity (0.6.0)
-      activesupport (>= 2.3)
     thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.14)
@@ -253,7 +244,6 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mailboxer
-  mongoid
   pg
   pry-rails
   rails (= 3.2.13)
@@ -264,5 +254,4 @@ DEPENDENCIES
   simplecov
   slim-rails
   squeel
-  tenacity
   uglifier (>= 1.0.3)
