@@ -93,6 +93,11 @@ GEM
       railties (>= 3.0.0)
     flashy (0.0.1)
       railties (>= 3.1.0)
+    flatstrap-sass (2.3.1.0)
+      font-awesome-rails (~> 3.0.2.0)
+      sass (~> 3.2)
+    font-awesome-rails (3.0.2.0)
+      railties (>= 3.1)
     foreigner (1.4.2)
       activerecord (>= 3.0.0)
     geocoder (1.1.8)
@@ -240,6 +245,7 @@ DEPENDENCIES
   devise
   dynamic_form
   factory_girl_rails
+  flatstrap-sass (~> 2.3.1.0)
   geocoder
   jquery-rails
   letter_opener

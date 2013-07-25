@@ -41,6 +41,8 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'flatstrap-sass', '~> 2.3.1.0'
+
 end
 
 gem 'jquery-rails'

@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require avatars_for_rails
 //= require_tree .
+//= require bootstrap
