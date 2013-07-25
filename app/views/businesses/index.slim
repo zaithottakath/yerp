@@ -1,20 +1,21 @@
-h1 Listing businesses
+h1 = @header
 
-table
+table.table.table-striped
   tr
     th Name
-    th
-    th
-    th
-    th
-    th
-- @businesses.each do |business|
-  tr
-    td = link_to business.name, business
-    td< = business.address
-    - if user_signed_in?
-      =< link_to 'Edit', edit_business_path(business)
-      =< link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?'}
+    th Address
+    th Rating (out of 5)
+    th Reviews
+  - @businesses.each do |business|
+    tr
+      td = link_to business.name, business
+      td = business.address
+      td = avg_rating_for(business)
+      td = review_count_for(business)
+      /- if user_signed_in?
+        /=< link_to 'Edit', edit_business_path(business)
+        /=< link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?'}
 
+p Didn't find the business you want to review?
 - if user_signed_in?
-  p = link_to 'Add Business', new_business_path
+  p = link_to 'Add Business', new_business_path, class: "btn btn-primary"

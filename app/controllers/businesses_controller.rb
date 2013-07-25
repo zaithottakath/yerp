@@ -6,8 +6,10 @@ class BusinessesController < ApplicationController
   def index
     if params[:tag]
       @businesses = Business.tagged_with(params[:tag])
+      @header = "Businesses tagged with '#{params[:tag]}'"
     else
       @businesses = Business.all
+      @header = 'All Businesses'
     end
 
     respond_to do |format|

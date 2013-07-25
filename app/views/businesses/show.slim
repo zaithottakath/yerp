@@ -1,33 +1,23 @@
 p#notice = notice
 
-p
-  b Name:
-  =< @business.name
-p
-  b Address:
-  =< @business.address
-p
-  'Tags:
-  == render_tag_links_for(@business)
+div.row-fluid
+  div.span8
+    p
+      h3 = @business.name
+      h3 = avg_rating_for(@business).to_s+' out of 5'
+      h3 = @business.address
+      -if user_signed_in?
+        p Something not right?
+        = link_to 'Edit Business', edit_business_path(@business), class: "btn btn-primary"
 
-p
-  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.latitude}%2C#{@business.longitude}"
+    == render 'comments'
 
-p
-  -if user_signed_in?
-    => link_to 'Edit', edit_business_path(@business)
-    '|
-  = link_to 'All Businesses', businesses_path
-
--if user_signed_in?
-  p
-    == render 'comments/form'
-
-- @business.comment_threads.each do |comment|
-  p
-    b> = link_to commentor_for(comment), user_path(comment.user_id)
-    ':
-    = comment.body
-    br
-    b> Rating:
-    = comment.rating
+  div.span4
+    p
+      b Tags:
+      ==< render_tag_links_for(@business)
+    p
+      = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@business.latitude}%2C#{@business.longitude}"
+    -if user_signed_in?
+      p
+        == render 'comments/form'

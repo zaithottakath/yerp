@@ -7,11 +7,19 @@ html
     = csrf_meta_tags
 
   body
-    -if user_signed_in?
-      a href="/users/sign_out" data-method="delete" rel="nofollow" Sign out
-    -else
-      a> href="/users/sign_in" Sign in
-      ||
-      a< href="/users/sign_up" Sign up
+    div.navbar
+      div.navbar-inner
+        a.brand href="/" Yerp
+        ul.nav
+          -if user_signed_in?
+            li
+              a href="/users/sign_out" data-method="delete" rel="nofollow" Sign out
+            li
+              = link_to "Profile", current_user
+          -else
+            li
+              a> href="/users/sign_in" Sign in
+            li
+              a< href="/users/sign_up" Sign up
 
     == yield

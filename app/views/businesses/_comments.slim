@@ -1,0 +1,7 @@
+- @business.comment_threads.each do |comment|
+  p
+    b> = link_to commentor_for(comment), user_path(comment.user_id)
+    b = ' rates: '+comment.rating.to_s+" out of 5 and says:"
+    br
+    = comment.body
+    br

@@ -1,12 +1,14 @@
-strong New comment
+strong Your Review
 = form_for [@business, @comment] do |f|
   = f.error_messages
   p
-    = f.label :comment
-    = f.text_area :body, size:"24x6"
-  p
-  - (1..5).each do |n|
-    = f.radio_button :rating, n
-    = f.label :rating, n, value: n
+    = f.text_area :body, cols: '30', rows: '4', class: "field span12"
 
-  = f.submit
+  div.btn-group data-toggle="buttons-radio"
+
+    p
+    - (1..5).each do |n|
+      = f.label :rating, n, value: n, class: "radio inline control-label"
+      = f.radio_button :rating, n, class: "radio inline control-label"
+  br
+  = f.submit "Submit"

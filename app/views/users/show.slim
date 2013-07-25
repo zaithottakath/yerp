@@ -1,9 +1,14 @@
 h1 =@user.name
 h2 =@user.email
--comments_by(@user).each do |comment|
-  b> = link_to object_for(comment), path_for_object(comment)
-  ':
-  = comment.body
-  b> Rating:
-  = comment.rating
-  br
+table.table.table-striped
+  tr
+    th
+      h3 Reviews
+  -comments_by(@user).each do |comment|
+    tr
+      td
+        b> = link_to object_for(comment), path_for_object(comment)
+        b = comment.rating.to_s + ' out of 5'
+        br
+        => comment.body
+        br

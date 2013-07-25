@@ -9,4 +9,13 @@ module BusinessesHelper
     user = User.find(user_id)
     user.name || user.email
   end
+
+  def avg_rating_for(business)
+    business.comment_threads.average("rating").to_f.round(1)
+  end
+
+  def review_count_for(business)
+    business.comment_threads.count
+  end
+
 end
