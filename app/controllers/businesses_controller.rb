@@ -4,6 +4,7 @@ class BusinessesController < ApplicationController
   # GET /businesses.json
 
   def index
+    tag_cloud
     if params[:tag]
       @businesses = Business.tagged_with(params[:tag]).order('rating DESC')
       @header = "Businesses tagged with '#{params[:tag]}'"
@@ -88,5 +89,9 @@ class BusinessesController < ApplicationController
       format.html { redirect_to businesses_url }
       format.json { head :no_content }
     end
+  end
+private
+  def tag_cloud
+    @tags = Business.tag_counts_on(:tags)
   end
 end

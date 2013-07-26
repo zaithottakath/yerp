@@ -1,6 +1,17 @@
 h1 = @header
 
-h3 Sort by:
+div.row-fluid
+  div.span6
+      h3 Sort by:
+
+      = link_to "New", businesses_path(:sort=> "new_business"),  class: "btn btn-primary btn-small"
+      = link_to "Most Reviewed", businesses_path(:sort => "most_reviewed"),  class: "btn btn-primary btn-small"
+      = link_to "Highest Rated", businesses_path(:sort => "highest_rated"),  class: "btn btn-primary btn-small"
+
+  div.span6
+    h3 Tags:
+    - tag_cloud(@tags, ['btn-mini', 'btn-small', '', 'btn-large']) do |tag, css_class|
+      = link_to tag.name, businesses_path(tag: tag.name), :class => "btn #{rand_button} #{css_class}"
 
 table.table.table-striped
   tr
