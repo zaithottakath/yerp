@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   acts_as_taggable
   acts_as_commentable
 
-  attr_accessible :address, :name, :latitude, :longitude, :tag_list
+  attr_accessible :address, :name, :latitude, :longitude, :tag_list, :rating, :rating_count
   # :latitude and :longitude are necessary for geocoder to geocode the address
   geocoded_by :address
   # only geocode if the address changed

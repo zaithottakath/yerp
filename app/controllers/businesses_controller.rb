@@ -5,10 +5,10 @@ class BusinessesController < ApplicationController
 
   def index
     if params[:tag]
-      @businesses = Business.tagged_with(params[:tag])
+      @businesses = Business.tagged_with(params[:tag]).order('rating DESC')
       @header = "Businesses tagged with '#{params[:tag]}'"
     else
-      @businesses = Business.all
+      @businesses = Business.find(:all, order:'rating DESC')
       @header = 'All Businesses'
     end
 

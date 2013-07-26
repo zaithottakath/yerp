@@ -11,11 +11,11 @@ module BusinessesHelper
   end
 
   def avg_rating_for(business)
-    business.comment_threads.average("rating").to_f.round(1)
+    business.rating.round(1)
   end
 
   def review_count_for(business)
-    business.comment_threads.count
+    business.rating_count
   end
 
 end

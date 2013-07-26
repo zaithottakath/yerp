@@ -15,6 +15,9 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
 
+  after_save :update_commentable_rating_avg_and_count
+  after_destroy :update_commentable_rating_avg_and_count
+
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme
@@ -65,5 +68,12 @@ class Comment < ActiveRecord::Base
   # given the commentable class name and id
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
+  end
+
+  private
+  def update_commentable_rating_avg_and_count
+    rating = commentable.comment_threads.average("rating").to_f
+    rating_count = commentable.comment_threads.count
+    commentable.update_attributes(rating: rating, rating_count: rating_count)
   end
 end

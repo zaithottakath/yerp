@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620063027) do
+ActiveRecord::Schema.define(:version => 20130726051243) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20130620063027) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.float    "rating"
+    t.integer  "rating_count"
   end
 
   create_table "comments", :force => true do |t|
