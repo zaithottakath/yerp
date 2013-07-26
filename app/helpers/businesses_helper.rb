@@ -20,11 +20,7 @@ module BusinessesHelper
   end
 
   def review_count_for(business)
-    if business.rating_count
-      business.rating_count
-    else
-      "No ratings"
-    end
+    business.rating_count || "No ratings"
   end
 
   def blue_button
@@ -36,6 +32,6 @@ module BusinessesHelper
   end
 
   def rand_button
-    ['btn-primary', '', 'btn-success', 'btn-warning', 'btn-danger', 'btn-inverse', 'btn-link'].sample
+    ['btn-primary', '', 'btn-success', 'btn-warning', 'btn-danger', 'btn-inverse'].sample
   end
 end

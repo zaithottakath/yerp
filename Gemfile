@@ -29,6 +29,11 @@ gem 'slim-rails'
 
 gem 'dynamic_form'
 
+gem 'bootstrap-will_paginate'
+
+gem 'pg_search'
+gem 'ffaker'
+
 
 
 # Gems used only for assets and not required

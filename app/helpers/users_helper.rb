@@ -1,7 +1,5 @@
 module UsersHelper
-  def comments_by(user)
-    Comment.find_comments_by_user(user)
-  end
+
 
   def object_for(comment)
     obj = Comment.find_commentable(comment.commentable_type, comment.commentable_id)

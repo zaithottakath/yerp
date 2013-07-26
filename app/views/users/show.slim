@@ -4,7 +4,7 @@ table.table.table-striped
   tr
     th
       h3 Reviews
-  -comments_by(@user).each do |comment|
+  -@comments.each do |comment|
     tr
       td
         b> = link_to object_for(comment), path_for_object(comment)
@@ -12,3 +12,4 @@ table.table.table-striped
         br
         => comment.body
         br
+= will_paginate @comments

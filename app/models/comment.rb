@@ -15,8 +15,10 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
 
-  after_save :update_commentable_rating_avg_and_count
-  after_destroy :update_commentable_rating_avg_and_count
+  # callbacks to add rating and rating count to business model in case of rating or rating count change
+  after_save :update_commentable_rating_avg_and_count if :rating_changed? || :rating_count_changed?
+  #callback to update count after comment is removed
+  before_destroy :update_commentable_rating_avg_and_count
 
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
@@ -71,6 +73,7 @@ class Comment < ActiveRecord::Base
   end
 
   private
+  #method to update rating and rating comment in the Business Model.
   def update_commentable_rating_avg_and_count
     rating = commentable.comment_threads.average("rating").to_f
     rating_count = commentable.comment_threads.count
