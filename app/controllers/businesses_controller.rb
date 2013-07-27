@@ -5,11 +5,15 @@ class BusinessesController < ApplicationController
 
   def index
     tag_cloud
+    order = 'rating'
+    order = 'rating_count' if params[:sort] == 'most_reviewed'
+    order = 'created_at' if params[:sort] == 'new'
     if params[:tag]
-      @businesses = Business.tagged_with(params[:tag]).order('rating DESC')
+      @businesses = Business.tagged_with(params[:tag]).order("#{order} DESC")
       @header = "Businesses tagged with '#{params[:tag]}'"
+
     else
-      @businesses = Business.find(:all, order:'rating DESC')
+      @businesses = Business.find(:all, order:"#{order} DESC")
       @header = 'All Businesses'
     end
 
