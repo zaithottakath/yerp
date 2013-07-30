@@ -9,7 +9,7 @@ class BusinessesController < ApplicationController
       sort_and_filter_list
     elsif params[:q]
       @businesses = Business.search(params[:q])
-      @header = 'Search Results'
+      @header = "Search Results for #{params[:q].downcase}"
     else
       @businesses = Business.all
       @header = 'All Businesses'
