@@ -8,7 +8,7 @@ class BusinessesController < ApplicationController
     if params[:tag] || params[:sort]
       sort_and_filter_list
     elsif params[:q]
-      @businesses = Business.all
+      @businesses = Business.search(params[:q])
       @header = 'Search Results'
     else
       @businesses = Business.all
