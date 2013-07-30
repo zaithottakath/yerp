@@ -5,7 +5,7 @@ class Business < ActiveRecord::Base
   acts_as_commentable
 
   include PgSearch
-  multisearchable against: [:name, :description]
+  pg_search_scope :search, against: [:name, :description]
 
   attr_accessible :address, :name, :latitude, :longitude, :tag_list, :rating, :rating_count,
                   :description

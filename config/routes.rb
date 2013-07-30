@@ -9,7 +9,8 @@ Yerp::Application.routes.draw do
   resources :businesses do
     resources :comments, only: [:create]
   end
-  get 'tags/:tag', to: 'businesses#index', as: :tag
+
+  get 'search', to: 'businesses#index', as: :search
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

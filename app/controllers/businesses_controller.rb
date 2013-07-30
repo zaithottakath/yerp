@@ -5,17 +5,16 @@ class BusinessesController < ApplicationController
 
   def index
     tag_cloud
-    order = 'rating'
-    order = 'rating_count' if params[:sort] == 'most_reviewed'
-    order = 'created_at' if params[:sort] == 'new'
-    if params[:tag]
-      @businesses = Business.tagged_with(params[:tag]).order("#{order} DESC")
-      @header = "Businesses tagged with '#{params[:tag]}'"
-
+    if params[:tag] || params[:sort]
+      sort_and_filter_list
+    elsif params[:q]
+      @businesses = Business.all
+      @header = 'Search Results'
     else
-      @businesses = Business.find(:all, order:"#{order} DESC")
+      @businesses = Business.all
       @header = 'All Businesses'
     end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -98,4 +97,20 @@ private
   def tag_cloud
     @tags = Business.tag_counts_on(:tags)
   end
+
+  def sort_and_filter_list
+    order = 'rating'
+    order = 'rating_count' if params[:sort] == 'most_reviewed'
+    order = 'created_at' if params[:sort] == 'new'
+    if params[:tag]
+      @businesses = Business.tagged_with(params[:tag]).order("#{order} DESC")
+      @header = "Businesses tagged with '#{params[:tag]}'"
+
+    else
+      @businesses = Business.find(:all, order:"#{order} DESC")
+      @header = 'Businesses'
+    end
+  end
+
+
 end

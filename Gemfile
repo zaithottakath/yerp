@@ -78,6 +78,7 @@ gem 'simplecov', :require => false, :group => :test
 
 group :development do
   gem 'pry-rails'
+  gem 'pry-debugger'
   gem 'letter_opener'
   gem 'better_errors'
   gem 'binding_of_caller'
